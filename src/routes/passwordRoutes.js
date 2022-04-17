@@ -5,6 +5,7 @@ import 'express-async-errors';
 const router = new Router();
 
 import newPasswordController from '../controllers/NewPasswordController';
+import callNextPasswordController from '../controllers/CallNextPasswordController';
 /* const callNextPasswordController = require('./app/controllers/CallNextPasswordController');
 const listPasswordController = require('./app/controllers/ListPasswordsController');
 
@@ -18,6 +19,8 @@ routes.get('/api/password', callNextPasswordController.handle);
 routes.get('/api/password/list/:option', listPasswordController.handle); */
 
 router.post('/', newPasswordController.handle);
+router.patch('/', callNextPasswordController.handle);
+router.get('/');
 
 export default router;
 
