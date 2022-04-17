@@ -6,6 +6,7 @@ const router = new Router();
 
 import newPasswordController from '../controllers/NewPasswordController';
 import callNextPasswordController from '../controllers/CallNextPasswordController';
+import listLastCalledPasswordController from '../controllers/ListLastCalledPasswordController';
 /* const callNextPasswordController = require('./app/controllers/CallNextPasswordController');
 const listPasswordController = require('./app/controllers/ListPasswordsController');
 
@@ -20,7 +21,7 @@ routes.get('/api/password/list/:option', listPasswordController.handle); */
 
 router.post('/', newPasswordController.handle);
 router.patch('/', callNextPasswordController.handle);
-router.get('/');
+router.get('/', listLastCalledPasswordController.handle);
 
 export default router;
 
