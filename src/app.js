@@ -6,6 +6,7 @@ import './database';
 
 import storeRoutes from './routes/storeRoutes';
 import departmentRoutes from './routes/departmentsRoutes';
+import passwordRoutes from './routes/passwordRoutes';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ class App {
   routes() {
     this.app.use('/api/stores', storeRoutes);
     this.app.use('/api/departments', departmentRoutes);
+    this.app.use('/api/passwords', passwordRoutes);
   }
 }
 

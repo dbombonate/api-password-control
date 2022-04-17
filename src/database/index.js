@@ -4,9 +4,10 @@ import databaseConfig from '../config/database';
 // import all models
 import Store from '../models/Store';
 import Department from '../models/Department';
+import Password from '../models/Password';
 
 // declare all models above
-const models = [Store, Department];
+const models = [Store, Department, Password];
 
 const connection = new Sequelize(databaseConfig);
 
