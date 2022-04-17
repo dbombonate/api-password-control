@@ -15,5 +15,6 @@ export default class Department extends Model {
 
   static associate(models) {
     this.belongsTo(models.Store, { foreignKey: 'store_id' });
+    this.hasMany(models.Password, { foreignKey: 'dept_id' });
   }
 }
