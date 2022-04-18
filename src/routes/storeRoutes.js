@@ -2,16 +2,14 @@ import { Router } from 'express';
 
 import 'express-async-errors';
 
-import checkErrors from '../middlewares/checkErrors';
-
 import storeController from '../controllers/StoreController';
 
 const router = new Router();
 
-router.get('/', checkErrors, storeController.index);
-router.post('/', checkErrors, storeController.store);
-router.get('/:id', checkErrors, storeController.show);
-router.delete('/:id', checkErrors, storeController.delete);
-router.patch('/:id', checkErrors, storeController.update);
+router.get('/', storeController.index);
+router.post('/', storeController.store);
+router.get('/:id', storeController.show);
+router.delete('/:id', storeController.delete);
+router.patch('/:id', storeController.update);
 
 export default router;

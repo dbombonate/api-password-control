@@ -1,7 +1,6 @@
 import { Router } from 'express';
 
 import 'express-async-errors';
-import checkErrors from '../middlewares/checkErrors';
 
 const router = new Router();
 
@@ -9,7 +8,7 @@ import newPasswordController from '../controllers/NewPasswordController';
 import callNextPasswordController from '../controllers/CallNextPasswordController';
 import listLastCalledPasswordController from '../controllers/ListLastCalledPasswordController';
 
-router.post('/', checkErrors, newPasswordController.handle);
+router.post('/', newPasswordController.handle);
 router.patch('/', callNextPasswordController.handle);
 router.get('/', listLastCalledPasswordController.handle);
 
