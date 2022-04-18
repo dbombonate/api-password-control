@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
+import 'express-async-errors';
 import express from 'express';
 
-import 'express-async-errors';
 import './database';
 
 import storeRoutes from './routes/storeRoutes';
@@ -26,6 +26,10 @@ class App {
     this.app.use('/api/stores', storeRoutes);
     this.app.use('/api/departments', departmentRoutes);
     this.app.use('/api/passwords', passwordRoutes);
+    this.app.use((error, req, res, next) => {
+      console.log('error middleware');
+      res.status(500).send({ erro: error.message });
+    });
   }
 }
 
