@@ -39,6 +39,10 @@ export default class CallNextPasswordService {
       },
     });
 
+    if (!callNextPassword) {
+      throw new Error('Something is wrong when consulting Database.');
+    }
+
     return callNextPassword;
   }
 }
