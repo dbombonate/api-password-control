@@ -5,6 +5,10 @@ export default class CreatePasswordService {
   async create(body) {
     const { password_priority, dept_id } = body;
 
+    if (typeof (password_priority) !== 'boolean') {
+      throw new Error('Password Priority is Invalid.');
+    }
+
     const generatePassword = new NewPasswordService();
     const password = generatePassword.generate(password_priority);
 
