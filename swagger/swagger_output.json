@@ -5,100 +5,15 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "localhost:3000",
+  "host": "localhost:3030",
   "basePath": "/",
   "schemes": [
     "http"
   ],
   "paths": {
-    "/": {
-      "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "patch": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
-      "patch": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
     "/api/stores/": {
       "get": {
-        "description": "",
+        "description": "Route to list all Stores.",
         "parameters": [],
         "responses": {
           "200": {
@@ -107,7 +22,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Route to create a new Store.",
         "parameters": [],
         "responses": {
           "200": {
@@ -118,7 +33,7 @@
     },
     "/api/stores/{id}": {
       "get": {
-        "description": "",
+        "description": "Route to list specific store with ID.",
         "parameters": [
           {
             "name": "id",
@@ -134,7 +49,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Route to delete a specific store with ID.",
         "parameters": [
           {
             "name": "id",
@@ -153,7 +68,7 @@
         }
       },
       "patch": {
-        "description": "",
+        "description": "Route to update a specific store with ID.",
         "parameters": [
           {
             "name": "id",
@@ -174,7 +89,7 @@
     },
     "/api/departments/": {
       "get": {
-        "description": "",
+        "description": "Route to list all departments.",
         "parameters": [],
         "responses": {
           "200": {
@@ -183,7 +98,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Route to create a new department.",
         "parameters": [],
         "responses": {
           "200": {
@@ -194,7 +109,7 @@
     },
     "/api/departments/{id}": {
       "get": {
-        "description": "",
+        "description": "Route to list specific department with ID.",
         "parameters": [
           {
             "name": "id",
@@ -210,7 +125,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Route to delete a specific department with ID.",
         "parameters": [
           {
             "name": "id",
@@ -229,7 +144,7 @@
         }
       },
       "patch": {
-        "description": "",
+        "description": "Route to update a specific department with ID.",
         "parameters": [
           {
             "name": "id",
@@ -250,8 +165,31 @@
     },
     "/api/passwords/": {
       "post": {
-        "description": "",
-        "parameters": [],
+        "description": "Route to create new password.",
+        "parameters": [
+          {
+            "name": "password_priority",
+            "description": "Indicate password priority",
+            "required": false,
+            "in": "body",
+            "example": "password_priority: true",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          {
+            "name": "dept_id",
+            "description": "Inform this to send the department id",
+            "required": false,
+            "in": "body",
+            "example": "dept_id: 1",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -259,7 +197,7 @@
         }
       },
       "patch": {
-        "description": "",
+        "description": "Route to call next password.",
         "parameters": [],
         "responses": {
           "200": {
@@ -268,7 +206,7 @@
         }
       },
       "get": {
-        "description": "",
+        "description": "Route to list last called password.",
         "parameters": [],
         "responses": {
           "200": {
