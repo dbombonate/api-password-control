@@ -4,17 +4,26 @@ const departmentService = new DepartmentService();
 
 class DepartmentController {
   async index(req, res) {
+    /*
+      #swagger.description = 'Route to list all departments.'
+    */
     const departmentList = await departmentService.list();
     return res.status(200).send({ departmentList });
   }
 
   async show(req, res) {
+    /*
+      #swagger.description = 'Route to list specific department with ID.'
+    */
     const department = await departmentService.listById(req.params);
 
     return res.status(200).send({ department });
   }
 
   async store(req, res) {
+    /*
+      #swagger.description = 'Route to create a new department.'
+    */
     const department = req.body;
 
     const newDepartment = await departmentService.create(department);
@@ -23,6 +32,9 @@ class DepartmentController {
   }
 
   async delete(req, res) {
+    /*
+      #swagger.description = 'Route to delete a specific department with ID.'
+    */
     const id = req.params;
     const deleteDepartment = await departmentService.delete(id);
 
@@ -34,6 +46,9 @@ class DepartmentController {
   }
 
   async update(req, res) {
+    /*
+      #swagger.description = 'Route to update a specific department with ID.'
+    */
     const id = req.params;
     const updateDepartment = await departmentService.update(id, req.body);
 

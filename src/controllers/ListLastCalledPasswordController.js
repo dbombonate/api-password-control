@@ -2,6 +2,9 @@ import ListLastCalledPasswordService from '../services/ListLastCalledPasswordSer
 
 class ListLastCalledPasswordController {
   async handle(req, res) {
+    /*
+      #swagger.description = 'Route to list last called password.'
+    */
     const listLastCalledPasswordService = new ListLastCalledPasswordService();
 
     const lastPasswordCalled = await listLastCalledPasswordService.list();
